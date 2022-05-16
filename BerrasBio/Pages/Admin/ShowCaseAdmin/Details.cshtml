@@ -1,0 +1,43 @@
+﻿@page
+@model BerrasBio.Pages.Admin.ShowCaseAdmin.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ShowCase</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ShowCase.Starts)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ShowCase.Starts)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ShowCase.AvailableSeats)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ShowCase.AvailableSeats)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ShowCase.Movie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ShowCase.Movie.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ShowCase.Salon)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ShowCase.Salon.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ShowCase?.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
