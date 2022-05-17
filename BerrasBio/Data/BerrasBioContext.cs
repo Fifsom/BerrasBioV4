@@ -18,5 +18,10 @@ namespace BerrasBio.Data
         public DbSet<Salon>? Salon { get; set; }
         public DbSet<ShowCase>? ShowCase { get; set; }
         public DbSet<Ticket>? Ticket { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Seed();
+        }
     }
 }
