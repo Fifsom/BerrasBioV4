@@ -12,12 +12,23 @@ builder.Services.AddDbContext<BerrasBioContext>(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+//BerrasBioContext context = app.Services.GetRequiredService<BerrasBioContext>();
+//context.Database.EnsureCreated();
+using (var scope = app.Services.CreateScope())
+{
+    var service = scope.ServiceProvider;
+    var context = service.GetRequiredService<BerrasBioContext>();
+    context.Database.EnsureCreated();
+}
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
